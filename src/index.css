@@ -1,0 +1,9 @@
+body {
+  background: #f4eae6;
+  font-family: "Kanit", sans-serif;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+}
