@@ -150,3 +150,9 @@
   text-align: center;
   color: #f05f66;
 }
+
+@media only screen and (min-width: 1300px) {
+  .jokes {
+    height: 50vh !important;
+  }
+}
