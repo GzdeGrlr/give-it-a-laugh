@@ -1,10 +1,12 @@
 import { FETCH_JOKE } from "../actions/jokesActions";
 import { ADD_FAVORITE } from "../actions/jokesActions";
 import { REMOVE_FAVORITE } from "../actions/jokesActions";
+import { FETCH_USER_START } from "../actions/jokesActions";
 
 const initialState = {
   jokes: [],
   favorites: [],
+  isFetching: true,
 };
 
 const reducer = (state = initialState, action) => {
@@ -17,6 +19,11 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         favorites: state.favorites.filter((item) => action.payload !== item.id),
+      };
+    case FETCH_USER_START:
+      return {
+        ...state,
+        isFetching: false,
       };
     default:
       return state;

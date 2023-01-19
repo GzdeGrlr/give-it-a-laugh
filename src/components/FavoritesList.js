@@ -3,7 +3,7 @@ import { FaRegSmileBeam } from "react-icons/fa";
 import { CiCircleRemove } from "react-icons/ci";
 import { removeFavorite } from "../actions/jokesActions";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 function FavoritesList() {
   const favorites = useSelector((store) => store.favorites);

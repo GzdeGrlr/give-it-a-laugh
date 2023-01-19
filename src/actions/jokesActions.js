@@ -1,6 +1,7 @@
 export const FETCH_JOKE = "FETCH_JOKE";
 export const ADD_FAVORITE = "ADD_FAVORITE";
 export const REMOVE_FAVORITE = "REMOVE_FAVORITE";
+export const FETCH_USER_START = "FETCH_USER_START";
 
 export const fetchJoke = () => {
   return (dispatch) => {

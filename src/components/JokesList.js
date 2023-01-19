@@ -3,15 +3,18 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchJoke, addFavorite } from "../actions/jokesActions";
 import { BsHeartFill } from "react-icons/bs";
 import { FcNext } from "react-icons/fc";
+import { FETCH_USER_START } from "../actions/jokesActions";
 
 const JokeList = () => {
   const dispatch = useDispatch();
   const jokes = useSelector((state) => state.jokes);
   const favorites = useSelector((state) => state.favorites);
   const [success, setSuccess] = useState(false);
+  const isFetching = useSelector((state) => state.isFetching);
 
   useEffect(() => {
     dispatch(fetchJoke());
+    dispatch({ type: FETCH_USER_START });
   }, []);
 
   const handleAddFavorite = () => {
@@ -27,7 +30,9 @@ const JokeList = () => {
         <i>A good laugh heals a lot of hurts.</i>
         <p>— Madeleine L’Engle</p>
       </p>
-      {jokes && (
+      {isFetching ? (
+        "Loading..."
+      ) : (
         <div className="jokes">
           <div className="photo-button">
             <img
